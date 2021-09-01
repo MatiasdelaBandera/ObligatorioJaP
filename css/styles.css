@@ -139,3 +139,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.formLogIn {
+  transform: scale(1.25, 1.25);
+}
