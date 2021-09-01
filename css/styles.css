@@ -140,6 +140,55 @@ a.custom-card:hover {
   color: orange;
 }
 
-.formLogIn {
+.singInBox {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.formSingIn {
   transform: scale(1.25, 1.25);
+  position: relative;
+  top: 60px;
+  width: 320;
+  height: 420;
+  background-color: #53C0FB;
+  color: #f8f9fa;
+  box-sizing: border-box;
+  padding: 20px 30px 100px;
+}
+
+.formSingIn h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+.formSingIn label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.formSingIn input[type = "email"] {
+  border: none;
+  border-bottom: 1px solid #f8f9fa;
+  background: transparent;
+}
+
+.fomrsingIn input [type="password"] {
+  border: none;
+  border-bottom: 1px solid #f8f9fa;
+  background: transparent;
+}
+
+
+.img-login {
+  transform: scale(0.75, 0.75 );
+  z-index: -1;
+  position: absolute;
+  top: -80px;
+  left: 260px;
 }
