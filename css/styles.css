@@ -149,13 +149,14 @@ a.custom-card:hover {
 .formSingIn {
   transform: scale(1.25, 1.25);
   position: relative;
-  top: 80px;
+  top: 100px;
   width: 320;
   height: 420;
   background-color: #fff;
   color: #229fbc;
   box-sizing: border-box;
   padding: 20px 30px 100px;
+
 }
 
 .formSingIn h1 {
@@ -175,7 +176,7 @@ a.custom-card:hover {
 .formSingIn input[type = "email"], .fomrsingIn input [type="password"] {
   height: 40px
   color #fff;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .img-login {
