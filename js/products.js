@@ -1,6 +1,9 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
+const ORDER_ASC_BY_PRICE = "↑$";
+const ORDER_DESC_BY_PRICE = "↓$";
+const ORDER_DESC_RELEVANCE = "Relevancia";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -30,7 +33,25 @@ function sortProducts(criteria, array){
             if ( aCount < bCount ){ return 1; }
             return 0;
         });
-    }
+    }else if (criteria === ORDER_ASC_BY_PRICE){
+        result = array.sort(function(a, b) {
+            if ( a.cost < b.cost ) { return -1; }
+            if ( a.cost > b.cost ) { return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_PRICE){
+        result = array.sort(function(a, b) {
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1;}
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_RELEVANCE){
+        result = array.sort(function(a, b) {
+            if ( a.soldCount > b.soldCount ){ return -1; }
+            if ( a.soldCount < b.soldCount ){ return 1; }
+            return 0
+        })
+    };
 
     return result;
 }
@@ -76,14 +97,14 @@ function sortAndShowProducts(sortCriteria, ProductsArray){
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
-    //Muestro los productos ordenadas
+    //Muestro las categorías ordenadas
     showProductsList();
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-/*document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
@@ -98,9 +119,18 @@ function sortAndShowProducts(sortCriteria, ProductsArray){
         sortAndShowProducts(ORDER_DESC_BY_NAME);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_BY_PROD_COUNT);
+    document.getElementById("sortPAsc").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_ASC_BY_PRICE)
     });
+
+    document.getElementById("sortPDesc").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_DESC_BY_PRICE)
+    });
+
+    document.getElementById("sortByCount").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_DESC_RELEVANCE)
+    });
+
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
@@ -134,4 +164,4 @@ function sortAndShowProducts(sortCriteria, ProductsArray){
 
         showProductsList();
     });
-});*/
+});
