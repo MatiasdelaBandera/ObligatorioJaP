@@ -38,8 +38,8 @@ function sortProducts(criteria, array){
 function showProductsList(){
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < currentProductArray.length; i++){
-        let product = currentProductArray[i];
+    for(let i = 0; i < currentProductsArray.length; i++){
+        let product = currentProductsArray[i];
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))){
@@ -83,8 +83,8 @@ function sortAndShowProducts(sortCriteria, ProductsArray){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
+/*document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(CATEGORIES_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
         }
@@ -134,4 +134,4 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showProductsList();
     });
-});
+});*/
