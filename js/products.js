@@ -1,6 +1,9 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
+const ORDER_ASC_BY_PRICE = "↑$";
+const ORDER_DESC_BY_PRICE = "↓$";
+const ORDER_DESC_RELEVANCE = "Relevancia";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -30,10 +33,29 @@ function sortProducts(criteria, array){
             if ( aCount < bCount ){ return 1; }
             return 0;
         });
-    }
+    }else if (criteria === ORDER_ASC_BY_PRICE){
+        result = array.sort(function(a, b) {
+            if ( a.cost < b.cost ) { return -1; }
+            if ( a.cost > b.cost ) { return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_PRICE){
+        result = array.sort(function(a, b) {
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1;}
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_RELEVANCE){
+        result = array.sort(function(a, b) {
+            if ( a.soldCount > b.soldCount ){ return -1; }
+            if ( a.soldCount < b.soldCount ){ return 1; }
+            return 0
+        })
+    };
 
     return result;
 }
+
 
 function showProductsList(){
 
@@ -98,9 +120,18 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowProducts(ORDER_DESC_BY_NAME);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_BY_PROD_COUNT);
+    document.getElementById("sortPAsc").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_ASC_BY_PRICE)
     });
+
+    document.getElementById("sortPDesc").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_DESC_BY_PRICE)
+    });
+
+    document.getElementById("sortByCount").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_DESC_RELEVANCE)
+    });
+
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
