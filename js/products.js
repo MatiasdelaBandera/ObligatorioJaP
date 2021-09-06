@@ -4,10 +4,28 @@ const ORDER_BY_PROD_COST = "Precio";
 const ORDER_ASC_BY_PRICE = "↑$";
 const ORDER_DESC_BY_PRICE = "↓$";
 const ORDER_DESC_RELEVANCE = "Relevancia";
+var nombreUsuario = "";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCost = undefined;
 var maxCost = undefined;
+//import imgUsuario from "../img/Usuario.png"
+
+function nombreUsuarioF () {
+    if (nombreUsuario = null) {
+        nombreUsuario === "Usuario"
+    }else {
+        nombreUsuario = localStorage.getItem('nombre-Usuario')
+    }
+    return nombreUsuario
+}
+
+nombreUsuarioF();
+
+let htmlContentToAppend = "";
+htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
+
+document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
 
 function sortProducts(criteria, array){
     let result = [];

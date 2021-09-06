@@ -186,3 +186,19 @@ a.custom-card:hover {
   top: -200px;
   left: -100px;
 }
+
+
+.img-usuario{
+  border: 1px solid red;
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.usuario{
+  
+  position: relative;
+  left: 200px;
+  top: -8px;
+}
+

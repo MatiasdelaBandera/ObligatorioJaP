@@ -3,6 +3,8 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("singInButton").addEventListener("click", login)
+
+    document.getElementById("singInButton").addEventListener("click", nombreUsuario)
 });
 
 function login(){
@@ -14,3 +16,8 @@ function login(){
         alert ("campos vacios")
     }
 }
+
+
+function nombreUsuario(){
+    localStorage.setItem('nombre-Usuario',document.getElementById('inputEmail').value)
+};
