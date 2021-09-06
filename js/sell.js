@@ -10,6 +10,25 @@ let PERCENTAGE_SYMBOL = '%';
 let SUCCESS_MSG = "¡Se ha realizado la publicación con éxito! :)";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
+
+function nombreUsuarioF () {
+    if (nombreUsuario = null) {
+        nombreUsuario === "Usuario"
+    }else {
+        nombreUsuario = localStorage.getItem('nombre-Usuario')
+    }
+    return nombreUsuario
+}
+
+nombreUsuarioF();
+
+let htmlContentToAppend = "";
+htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
+
+document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
+
+
+
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
     let unitProductCostHTML = document.getElementById("productCostText");

@@ -6,6 +6,24 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
+
+function nombreUsuarioF () {
+    if (nombreUsuario = null) {
+        nombreUsuario === "Usuario"
+    }else {
+        nombreUsuario = localStorage.getItem('nombre-Usuario')
+    }
+    return nombreUsuario
+}
+
+nombreUsuarioF();
+
+let htmlContentToAppend = "";
+htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
+
+document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
+
+
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
