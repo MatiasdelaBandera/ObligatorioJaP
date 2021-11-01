@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-/*items.addEventListener('click' e => {
+items.addEventListener('click' e => {
     btnAccion(e)
-})*/
+})
 
 const fetchData = async () => {
     try {
@@ -50,20 +50,20 @@ const createCards = data => {
     data.forEach(producto => {
         templateCard.querySelector('h5').textContent = producto.name
 
-        //const clone = templateCard.cloneNode(true)
-        //fragment.appendChild(clone)
+        const clone = templateCard.cloneNode(true)
+        fragment.appendChild(clone)
     });
-    //items.appendChild(fragment)
+    items.appendChild(fragment)
 }
 
-/*const addCarrito = e => {
+const addCarrito = e => {
     
     setCarrito(e.target.parentElement)
     
     e.stopPropagation()
-}*/
+}
 
-/*const setCarrito = object => {
+const setCarrito = object => {
     const producto = {
         titulo: producto.name,
         precio: producto.unitCost,
@@ -77,9 +77,9 @@ const createCards = data => {
     
     carrito[producto.name] = {...producto}
     pintarCarrito()
-}*/
+}
 
-/*const pintarCarrito = data => {
+const pintarCarrito = data => {
 
     
     data.articles.forEach(producto => {
@@ -105,9 +105,9 @@ const createCards = data => {
 
     pintarFooter()
 
-}*/
+}
 
-/*const pintarFooter = () => {
+const pintarFooter = () => {
     footer.innerHTML = "" ;
     if(Object.keys(carrito).length === 0 ) {
         footer.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>` 
@@ -130,9 +130,9 @@ const createCards = data => {
         pintarCarrito()
     })
 
-}*/
+}
 
-/*const btnAccion = e => {
+const btnAccion = e => {
     e.target
     //Accion de aumentar
     if(e.target.classList.contains("btn-info")){
@@ -152,5 +152,5 @@ const createCards = data => {
     }
 
     e.stopPropagation()
-}*/
+}
 
