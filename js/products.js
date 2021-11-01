@@ -22,8 +22,8 @@ function nombreUsuarioF () {
 
 nombreUsuarioF();
 
-let htmlContentToAppend = "";
-htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
+//let htmlContentToAppend = "";
+//htmlContentToAppend += nombreUsuario //+ `<img src" ` + imgUsuario + ` ">`
 
 document.getElementById("nombreUsuario").innerHTML = nombreUsuario;
 
@@ -183,3 +183,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+
+
+
+
+
+
+
